@@ -1,0 +1,16 @@
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+
+.grid-container > div {
+  display: flex;
+  margin: 0 auto;
+}
+
+.card img {
+  width: 18rem;
+  height: 15rem;
+  object-fit: cover;
+}

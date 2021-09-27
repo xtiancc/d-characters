@@ -1,0 +1,14 @@
+a {
+  color: #212529;
+  font-weight: 600;
+  text-decoration: underline #000;
+}
+
+a > small {
+  color: #d03e35;
+}
+
+a:hover {
+  color: #212529;
+  text-decoration: underline #f49807;
+}
