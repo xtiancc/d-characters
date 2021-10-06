@@ -19,7 +19,7 @@ const Card = ({id, name, img = ''}) => {
     
     return (
         <div className="card">
-            <img className="card-img-top" src={fixOrReplaceImg} alt={`${name}'s preview`}/>
+            <img loading="true" className="card-img-top" src={fixOrReplaceImg} alt={`${name}'s preview`}/>
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
                 <button onClick={handleClick} className="btn btn-dark">Read more</button>

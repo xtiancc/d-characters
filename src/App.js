@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import {
@@ -7,9 +7,11 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import Home from "./pages/Home";
-import Details from "./pages/Details";
 import "./App.css";
+import Loading from "./components/Loading";
+
+const Home = lazy(() => import("./pages/Home"));
+const Details = lazy(() => import("./pages/Details"));
 
 function App() {
   return (
@@ -17,11 +19,13 @@ function App() {
       <Header />
       <div className="container mt-3">
         <Router>
-          <Switch>
-            <Route exact path="/page/:id" component={Home} />
-            <Route exact path="/details/:id" component={Details} />
-            <Redirect to="/page/1" />
-          </Switch>
+          <Suspense fallback={<Loading />}>
+            <Switch>
+              <Route exact path="/page/:id" component={Home} />
+              <Route exact path="/details/:id" component={Details} />
+              <Redirect to="/page/1" />
+            </Switch>
+          </Suspense>
         </Router>
       </div>
       <Footer />
